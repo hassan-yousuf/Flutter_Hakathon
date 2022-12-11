@@ -88,13 +88,12 @@ class _LiveLocationState extends State<LiveLocation> {
   }
 
   Future<void> GetAddressFromLatLong(Position position) async {
-    List<Placemark> placemark = await placemarkFromCoordinates(
+    List<Placemark> placeMark = await placemarkFromCoordinates(
       position.latitude,
       position.longitude,
     );
-    Placemark place = placemark[0];
     address =
-        'Address:    ${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode} ${place.country}';
+        'Address:    ${placeMark[0].country} - ${placeMark[3].street} - ${placeMark[1].locality}';
     setState(() {});
   }
 }

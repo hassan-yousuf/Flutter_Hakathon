@@ -48,7 +48,7 @@ class _paymentGatewayState extends State<paymentGateway> {
       "key": "rzp_test_nckP07t5OTi5jy",
       "amount": num.parse(controller.value.text) * 100,
       "name": controllerss.text,
-      "description": "Payment For Hakathon!",
+      "description": controllersss.text,
       "prefill": {
         "contact": controllers.text,
         "email": _controller.text,
@@ -117,6 +117,20 @@ class _paymentGatewayState extends State<paymentGateway> {
               ),
             ),
             Container(
+              height: 49,
+              width: 290,
+              child: TextField(
+                keyboardType: TextInputType.text,
+                controller: controllersss,
+                decoration: InputDecoration(
+                  labelText: 'Enter your description',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100.0),
+                  ),
+                ),
+              ),
+            ),
+            Container(
               height: 70,
               width: 285,
               child: TextField(
@@ -144,6 +158,7 @@ class _paymentGatewayState extends State<paymentGateway> {
   }
 
   TextEditingController controller = TextEditingController();
+  TextEditingController controllersss = TextEditingController();
   TextEditingController _controller = TextEditingController();
   TextEditingController controllers = TextEditingController();
   TextEditingController controllerss = TextEditingController();

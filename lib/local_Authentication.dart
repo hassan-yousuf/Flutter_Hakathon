@@ -62,6 +62,14 @@ class _localAuthState extends State<localAuth> {
     setState(() {
       _autherized = authenticated ? 'Autherized' : 'Not Autherized!';
     });
+    if (authenticated)
+      loggedIn();
+    else
+      return;
+  }
+
+  loggedIn() async {
+    await Navigator.pushNamed(context, '/auth_Sucessfull');
   }
 
   @override

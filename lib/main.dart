@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:hakathon/auth_Sucessfull.dart';
 import 'package:hakathon/bottom_handler.dart';
+import 'package:hakathon/local_Authentication.dart';
 import 'package:hakathon/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +41,10 @@ class MyApp extends StatelessWidget {
             darkTheme: MyThemes.darkTheme,
             debugShowCheckedModeBanner: false,
             home: BottomHandler(),
+            routes: {
+              '/auth_Sucessfull': (context) => auth_Sucessfull(),
+              '/local_Auth': (context) => localAuth(),
+            },
           );
         },
       );

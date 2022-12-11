@@ -17,7 +17,7 @@ class camScanner extends StatefulWidget {
 class _camScannerState extends State<camScanner> {
   File? file;
   ImagePicker image = ImagePicker();
-  getImage() async {
+  getImagegallery() async {
     var img = await image.pickImage(source: ImageSource.gallery);
 
     setState(() {
@@ -57,49 +57,34 @@ class _camScannerState extends State<camScanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            (imageSelected)
-                ? Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: file == null
-                        ? Container()
-                        : PdfPreview(
-                            build: (format) => _generatePdf(format, file),
-                          ))
-                : SizedBox(
-                    height: 0,
-                    width: 0,
+      body: file == null
+          ? Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: getImagecam,
+                    icon: Icon(
+                      Icons.camera_alt,
+                      size: 40,
+                    ),
                   ),
-            RaisedButton(
-              child: Text('Select picture from Camera'),
-              shape: StadiumBorder(),
-              onPressed: () {
-                getImage();
-                setState(() {
-                  imageSelected = true;
-                });
-              },
+                  IconButton(
+                    onPressed: getImagegallery,
+                    icon: Icon(
+                      Icons.photo,
+                      size: 40,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          : Center(
+              child: PdfPreview(
+                build: (format) => _generatePdf(format, file),
+              ),
             ),
-            const SizedBox(height: 12),
-            RaisedButton(
-              child: Text('Select picture from Gallery'),
-              shape: StadiumBorder(),
-              onPressed: () {
-                getImagecam();
-                setState(() {
-                  imageSelected = true;
-                });
-              },
-            ),
-          ],
-        ),
-      ),
     );
   }
-
-  bool imageSelected = false;
 }

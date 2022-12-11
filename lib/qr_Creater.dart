@@ -22,7 +22,7 @@ class _QrCreaterState extends State<QrCreater> {
               //   size: 200,
               //   backgroundColor: Colors.white,
               // ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               buildTextField(context),
@@ -51,9 +51,7 @@ class _QrCreaterState extends State<QrCreater> {
           suffixIcon: IconButton(
             padding: EdgeInsets.zero,
             color: Colors.green.shade800,
-            onPressed: () => setState(
-              () {},
-            ),
+            onPressed: () => setState(() {}),
             icon: Icon(
               Icons.done,
               size: 28,
